@@ -14,8 +14,73 @@
   }
 }
 
+:root {
+  --color-primary: #0077b6;
+  --color-secondary: #48bb78;
+  --color-accent: #ff6f00;
+  --color-bg: #f8f9fa;
+  --color-text: #343a40;
+}
+
+body {
+  @apply bg-[var(--color-bg)] text-[var(--color-text)];
+  @apply leading-relaxed font-sans;
+}
+
+h1, h2, h3 {
+  @apply text-[var(--color-primary)];
+  @apply font-bold tracking-wide;
+}
+
+
+p {
+  @apply mb-4 text-lg;
+}
+
+
+
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  @apply bg-gray-100 text-gray-900;
 }
+
+.carousel {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel > div {
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.carousel img {
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.carousel button.left {
+  left: 0;
+}
+
+.carousel button.right {
+  right: 0;
+}
+
+
