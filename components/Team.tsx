@@ -14,7 +14,7 @@ const team = [
     name: "Dra. María Gómez",
     specialty: "Pediatra",
     experience: "8 años de experiencia",
-    additionalSpecialty: "Atención a niños con enfermedades respiratorias",
+    additionalSpecialty: "Atención especializada en niños ",
     photo: "Team/pediatria.jpg",
   },
   {
@@ -28,7 +28,7 @@ const team = [
     name: "Dra. Laura Sánchez",
     specialty: "Laboratorio Clínico",
     experience: "7 años de experiencia",
-    additionalSpecialty: "Análisis de sangre y pruebas moleculares",
+    additionalSpecialty: "Análisis de sangre y estudios recetados",
     photo: "Team/laboratorio.jpg",
   },
 ];

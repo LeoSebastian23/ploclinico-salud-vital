@@ -6,10 +6,10 @@ export default function Hero() {
       <section className="relative py-24 text-center text-white">
         <div className="absolute inset-0"></div> {/* Fondo oscuro para mejorar contraste */}
         
-        <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-teal-400 drop-shadow-lg">
+        <h2 className="text-5xl text-[var(--color-primary)] sm:text-5xl font-bold mb-6 text drop-shadow-lg">
           Cuidando tu bienestar, siempre
         </h2>
-        <p className="text-lg sm:text-2xl mb-8 max-w-2xl mx-auto drop-shadow-lg">
+        <p className="text-lg text-[var(--color-text)] sm:text-2xl mb-8 max-w-2xl mx-auto drop-shadow-lg">
           Tu salud es nuestra prioridad. Agenda tu consulta hoy mismo y comienza tu camino hacia una vida más saludable.
         </p>
         

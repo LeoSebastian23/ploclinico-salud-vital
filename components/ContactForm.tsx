@@ -1,7 +1,7 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
-
 interface ContactFormProps {
   subject?: string;
 }
@@ -42,10 +42,12 @@ export default function ContactForm({ subject = "" }: ContactFormProps) {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center bg-gray-50 p-6 rounded-lg shadow-lg">
         {/* Imagen o GIF */}
         <div className="w-full md:w-1/2 flex justify-center mb-8 mx-8 md:mb-0">
-          <img
+          <Image
             src="/form.svg"
             alt="Imagen de contacto"
-            className="w-full h-auto rounded-lg"
+            width={500}  
+            height={300} 
+            className="rounded-lg"
           />
         </div>
 
