@@ -21,7 +21,7 @@ const ParallaxSection = ({ children, bgImage }: { children: React.ReactNode, bgI
       style={{ backgroundImage: `url(${bgImage})`, backgroundPosition: `center ${backgroundPosition}`, backgroundAttachment: 'fixed' }}
       className="h-[500px] bg-cover bg-no-repeat flex items-center justify-center text-white"
     >
-      <div className="text-center bg-black bg-opacity-50 p-8 rounded-lg">
+      <div className="text-center bg-slate-800 bg-opacity-50 p-8 rounded-lg">
         {children}
       </div>
     </section>

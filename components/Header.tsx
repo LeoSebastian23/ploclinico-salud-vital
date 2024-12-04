@@ -1,8 +1,8 @@
 // components/Header.tsx
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
+import { useState } from "react";
+import Link from "next/link";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,8 +10,11 @@ const Header = () => {
   return (
     <header className="bg-[var(--color-primary)] text-white py-2 shadow-lg sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center px-4 md:px-8">
-        <div className="text-2xl font-bold">
-          <Link href="/" className="hover:text-[var(--color-accent)] transition-colors">
+        <div className="text-3xl font-bold">
+          <Link
+            href="/"
+            className="hover:text-[var(--color-vital)] transition-colors"
+          >
             Salud Vital
           </Link>
         </div>
@@ -21,14 +24,26 @@ const Header = () => {
           <span className="text-2xl">☰</span>
         </button>
 
-        <nav className={`md:flex space-x-6 ${isOpen ? 'block' : 'hidden'}`}>
-          <Link href="#services" className="hover:text-[var(--color-accent)] transition-colors">
+        <nav className={`md:flex space-x-6 ${isOpen ? "block" : "hidden"}`}>
+          <Link
+            href="#services"
+            className="text-lg hover:text-[var(--color-vital)] transition-all duration-300 ease-in-out pr-6"
+            style={{ boxShadow: '2px 0 0 rgba(0, 0, 0, 0.3)' }}
+          >
             Servicios
           </Link>
-          <Link href="#team" className="hover:text-[var(--color-accent)] transition-colors">
+          <Link
+            href="#team"
+            className="text-lg hover:text-[var(--color-vital)] transition-all duration-300 ease-in-out pr-6"
+            style={{ boxShadow: '2px 0 0 rgba(0, 0, 0, 0.3)' }}
+          >
             Equipo
           </Link>
-          <Link href="#contact" className="hover:text-[var(--color-accent)] transition-colors">
+          <Link
+            href="#contact"
+            className="text-lg hover:text-[var(--color-vital)] transition-all duration-300 ease-in-out pr-6"
+            style={{ boxShadow: '2px 0 0 rgba(0, 0, 0, 0.3)' }}
+          >
             Contacto
           </Link>
         </nav>
@@ -36,6 +51,7 @@ const Header = () => {
         <Link
           href="#contact"
           className="bg-[var(--color-accent)] text-white px-4 py-2 rounded shadow-md hover:bg-[var(--color-primary)] transition-all hidden sm:inline-block"
+          style={{ boxShadow: '2px 0 0 rgba(0, 0, 0, 0.3)' }}
         >
           Reserva ahora
         </Link>
@@ -45,10 +61,3 @@ const Header = () => {
 };
 
 export default Header;
-
-
-
-
-
-
-  

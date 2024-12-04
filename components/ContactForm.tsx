@@ -1,77 +1,146 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function ContactForm() {
+interface ContactFormProps {
+  subject?: string;
+}
+
+export default function ContactForm({ subject = "" }: ContactFormProps) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
+    subject,
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  useEffect(() => {
+    setFormData((prevData) => ({
+      ...prevData,
+      subject,
+    }));
+  }, [subject]);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };  
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     alert(`Gracias por contactarnos, ${formData.name}!`);
-    // Aquí podrías enviar los datos a un backend o servicio como Formspree
-    setFormData({ name: "", email: "", message: "" });
+    setFormData({ name: "", email: "", message: "", subject: "" });
   };
 
   return (
-    <section id="contact" className="bg-white py-16">
-      <div className="container mx-auto text-center">
-        <h3 className="text-2xl font-bold mb-8">Contáctanos</h3>
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-gray-50 p-6 rounded shadow md:max-w-lg lg:max-w-xl">
-          <div className="mb-4">
-            <label htmlFor="name" className="block text-left text-gray-700 font-semibold">
-              Nombre completo
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full mt-1 p-2 border rounded"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="email" className="block text-left text-gray-700 font-semibold">
-              Correo electrónico
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full mt-1 p-2 border rounded"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="message" className="block text-left text-gray-700 font-semibold">
-              Mensaje
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full mt-1 p-2 border rounded"
-              rows={4}
-              required
-            ></textarea>
-          </div>
-          <button className="bg-[var(--color-accent)] text-white px-6 py-2 rounded hover:bg-[var(--color-primary)] hover:scale-105 transition-transform">
-  Enviar
-</button>
+    <section id="contact" className="bg-white py-12 px-4">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center bg-gray-50 p-6 rounded-lg shadow-lg">
+        {/* Imagen o GIF */}
+        <div className="w-full md:w-1/2 flex justify-center mb-8 mx-8 md:mb-0">
+          <img
+            src="/form.svg"
+            alt="Imagen de contacto"
+            className="w-full h-auto rounded-lg"
+          />
+        </div>
 
-        </form>
+        {/* Formulario */}
+        <div className="w-full md:w-1/2">
+          <h3 className="text-2xl font-semibold text-center mb-6">
+            Contáctanos
+          </h3>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <label
+                htmlFor="name"
+                className="block text-left text-gray-700 font-medium"
+              >
+                Nombre completo
+              </label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full mt-1 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] transition"
+                required
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-left text-gray-700 font-medium"
+              >
+                Correo electrónico
+              </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full mt-1 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] transition"
+                required
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="subject"
+                className="block text-left text-gray-700 font-medium"
+              >
+                Asunto
+              </label>
+              <select
+                name="subject"
+                id="subject"
+                value={formData.subject}
+                onChange={handleSelectChange}
+                className="w-full mt-1 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] transition"
+                required
+              >
+                <option value="">Selecciona una especialidad</option>
+                <option value="Medicina General">Medicina General</option>
+                <option value="Pediatría">Pediatría</option>
+                <option value="Cardiología">Cardiología</option>
+                <option value="Odontología">Odontología</option>
+                <option value="Laboratorio Clínico">Laboratorio Clínico</option>
+              </select>
+            </div>
+
+            <div>
+              <label
+                htmlFor="message"
+                className="block text-left text-gray-700 font-medium"
+              >
+                Mensaje
+              </label>
+              <textarea
+                name="message"
+                id="message"
+                value={formData.message}
+                onChange={handleChange}
+                className="w-full mt-1 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] transition"
+                rows={4}
+                required
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              className="w-full py-3 bg-[var(--color-accent)] text-white rounded-md hover:bg-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition transform hover:scale-105"
+            >
+              Enviar
+            </button>
+          </form>
+        </div>
       </div>
     </section>
   );

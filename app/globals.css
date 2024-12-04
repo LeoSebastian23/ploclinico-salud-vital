@@ -20,11 +20,28 @@
   --color-accent: #ff6f00;
   --color-bg: #f8f9fa;
   --color-text: #343a40;
+  --color-vital: #2dd4bf;
+}
+
+@font-face {
+  font-family: "GeistMonoVF";
+  src: url("/fonts/GeistMonoVF.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GeistVF";
+  src: url("/fonts/GeistVF.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 body {
   @apply bg-[var(--color-bg)] text-[var(--color-text)];
-  @apply leading-relaxed font-sans;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "GeistVF", sans-serif;
 }
 
 h1, h2, h3 {
@@ -34,17 +51,9 @@ h1, h2, h3 {
 
 
 p {
-  @apply mb-4 text-lg;
+  @apply mb-2 text-lg;
 }
 
-
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  @apply bg-gray-100 text-gray-900;
-}
 
 .carousel {
   display: flex;
@@ -67,7 +76,7 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: #000;
+  background-color: #444242;
   color: #fff;
   border: none;
   border-radius: 50%;
@@ -82,5 +91,6 @@ body {
 .carousel button.right {
   right: 0;
 }
+
 
 

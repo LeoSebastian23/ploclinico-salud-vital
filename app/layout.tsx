@@ -1,6 +1,7 @@
 'use client';
 import Header from '@/components/Header'; // Asegúrate de que la ruta sea correcta
 import './globals.css';
+import Footer from '@/components/Footer';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -13,9 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <Header/> {/* Header modularizado */}
         {children} {/* Contenido específico de cada página */}
-        <footer className="bg-gray-200 text-center py-4">
-          <p className="text-blue-600" >&copy; 2024 Policlínico Salud Vital. Todos los derechos reservados.</p>
-        </footer>
+        <Footer/> {/* Footer modularizado */}
       </body>
     </html>
   );
