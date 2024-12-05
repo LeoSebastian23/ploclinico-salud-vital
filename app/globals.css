@@ -39,7 +39,6 @@
 
 body {
   @apply bg-[var(--color-bg)] text-[var(--color-text)];
-  color: var(--foreground);
   background: var(--background);
   font-family: "GeistVF", sans-serif;
 }
