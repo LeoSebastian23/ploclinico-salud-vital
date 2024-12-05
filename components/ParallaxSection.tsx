@@ -1,4 +1,3 @@
-// components/ParallaxSection.tsx
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -14,14 +13,20 @@ const ParallaxSection = ({ children, bgImage }: { children: React.ReactNode, bgI
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Cálculo de la posición del fondo con base en el desplazamiento del scroll
   const backgroundPosition = `${scrollPosition * 0.2}px`;
 
   return (
     <section
-      style={{ backgroundImage: `url(${bgImage})`, backgroundPosition: `center ${backgroundPosition}`, backgroundAttachment: 'fixed' }}
-      className="h-[500px] bg-cover bg-no-repeat flex items-center justify-center text-white"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundPosition: `center ${backgroundPosition}`,
+        backgroundAttachment: 'fixed', // No es compatible con algunos dispositivos móviles
+        backgroundSize: 'cover',
+      }}
+      className="h-[50vh] md:h-[500px] bg-no-repeat flex items-center justify-center text-white"
     >
-      <div className="text-center p-8 rounded-lg">
+      <div className="text-center p-6 rounded-lg">
         {children}
       </div>
     </section>
@@ -29,3 +34,4 @@ const ParallaxSection = ({ children, bgImage }: { children: React.ReactNode, bgI
 };
 
 export default ParallaxSection;
+

@@ -6,6 +6,10 @@ import Link from "next/link";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleLinkClick = () => {
+    setIsOpen(false); // Cierra el menú cuando se hace clic en un enlace
+  };
+
   return (
     <header className="bg-[var(--color-primary)] text-white py-2 shadow-lg sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center px-4 md:px-8">
@@ -32,22 +36,22 @@ const Header = () => {
           <div className="flex flex-col items-center md:flex-row md:space-x-6 md:space-y-0 w-full md:w-auto">
             <Link
               href="#services"
-              className="text-lg hover:text-[var(--color-vital)] transition-all duration-300 ease-in-out px-6 py-2 w-full text-center md:text-left border-b md:border-none border-gray-300"
-              style={{ boxShadow: "2px 0 0 rgba(0, 0, 0, 0.3)" }}
+              onClick={handleLinkClick}
+              className="text-lg justify-center hover:text-[var(--color-vital)] transition-all duration-300 ease-in-out px-6 py-2 w-full text-center md:text-left border-b md:border-none border-gray-300 md:shadow-[0_1px_0_0_]"
             >
               Servicios
             </Link>
             <Link
               href="#team"
-              className="text-lg hover:text-[var(--color-vital)] transition-all duration-300 ease-in-out px-6 py-2 w-full text-center md:text-left border-b md:border-none border-gray-300"
-              style={{ boxShadow: "2px 0 0 rgba(0, 0, 0, 0.3)" }}
+              onClick={handleLinkClick}
+              className="text-lg justify-center hover:text-[var(--color-vital)] transition-all duration-300 ease-in-out px-6 py-2 w-full text-center md:text-left border-b md:border-none border-gray-300 md:shadow-[0_1px_0_0_]"
             >
               Equipo
             </Link>
             <Link
               href="#contact"
-              className="text-lg hover:text-[var(--color-vital)] transition-all duration-300 ease-in-out px-6 py-2 w-full text-center md:text-left border-b md:border-none border-gray-300"
-              style={{ boxShadow: "2px 0 0 rgba(0, 0, 0, 0.3)" }}
+              onClick={handleLinkClick}
+              className="text-lg justify-center hover:text-[var(--color-vital)] transition-all duration-300 ease-in-out px-6 py-2 w-full text-center md:text-left border-b md:border-none border-gray-300 md:shadow-[0_1px_0_0_]"
             >
               Contacto
             </Link>
