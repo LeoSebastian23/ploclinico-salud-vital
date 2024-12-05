@@ -6,18 +6,18 @@ interface ContactFormProps {
   subject?: string;
 }
 
-export default function ContactForm({ subject = "" }: ContactFormProps) {
+export default function ContactForm({ subject }: ContactFormProps) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
-    subject,
+    subject: subject || "",
   });
 
   useEffect(() => {
     setFormData((prevData) => ({
       ...prevData,
-      subject,
+      subject: subject || "",
     }));
   }, [subject]);
 
