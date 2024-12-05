@@ -47,13 +47,13 @@ export default function Team() {
               className="p-6 rounded-xl shadow-md bg-white hover:shadow-xl transition-all transform hover:scale-105"
             >
               <div className="relative w-32 h-32 mx-auto rounded-full overflow-hidden border-2 border-gray-300">
-                <Image
+              <Image
                   src={member.photo}
                   alt={`Foto de ${member.name}`}
-                  width={500} // Ajusta a las dimensiones necesarias
-                  height={300} // Ajusta a las dimensiones necesarias
-                  className="rounded-lg"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  layout="fill" // Hace que la imagen ocupe todo el espacio disponible
+                  objectFit="cover" // Asegura que la imagen cubra el área sin distorsionarse
+                  objectPosition="center" // Centra la imagen en el contenedor
+                  className="rounded-full"
                 />
               </div>
 

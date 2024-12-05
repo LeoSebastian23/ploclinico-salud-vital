@@ -35,9 +35,11 @@ export default function ContactForm() {
           <Image
             src="/form.svg"
             alt="Imagen de contacto"
+            layout="intrinsic" // Hace que la imagen ocupe su tamaño original
             width={500}  
             height={300} 
             className="rounded-lg"
+            sizes="(max-width: 768px) 100vw, 50vw" // Responsivo según el tamaño de pantalla
           />
         </div>
 
@@ -137,4 +139,5 @@ export default function ContactForm() {
     </section>
   );
 }
+
 
