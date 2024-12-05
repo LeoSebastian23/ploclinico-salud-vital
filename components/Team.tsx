@@ -50,8 +50,10 @@ export default function Team() {
                 <Image
                   src={member.photo}
                   alt={`Foto de ${member.name}`}
-                  layout="fill" 
-                  objectFit="cover"
+                  width={500} // Ajusta a las dimensiones necesarias
+                  height={300} // Ajusta a las dimensiones necesarias
+                  className="rounded-lg"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
 
@@ -62,7 +64,9 @@ export default function Team() {
                 <p className="text-gray-600 font-medium mt-1">
                   {member.specialty}
                 </p>
-                <p className="text-sm text-gray-500 mt-2">{member.experience}</p>
+                <p className="text-sm text-gray-500 mt-2">
+                  {member.experience}
+                </p>
                 <p className="text-sm text-gray-500">
                   {member.additionalSpecialty}
                 </p>
@@ -78,4 +82,3 @@ export default function Team() {
     </section>
   );
 }
-

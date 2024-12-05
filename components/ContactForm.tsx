@@ -1,25 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
-interface ContactFormProps {
-  subject?: string;
-}
+import { useState } from "react";
 
-export default function ContactForm({ subject }: ContactFormProps) {
+export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
-    subject: subject || "",
+    subject: "",
   });
-
-  useEffect(() => {
-    setFormData((prevData) => ({
-      ...prevData,
-      subject: subject || "",
-    }));
-  }, [subject]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -29,7 +19,7 @@ export default function ContactForm({ subject }: ContactFormProps) {
 
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  };  
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -147,3 +137,4 @@ export default function ContactForm({ subject }: ContactFormProps) {
     </section>
   );
 }
+
