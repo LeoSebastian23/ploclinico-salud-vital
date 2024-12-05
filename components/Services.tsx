@@ -40,6 +40,7 @@ export default function Services() {
     speed: 300,
     slidesToShow: 3, // Mostrar una tarjeta a la vez
     slidesToScroll: 1, // Mover una tarjeta por vez
+    arrows: false, 
     responsive: [
       {
         breakpoint: 1024, // Pantallas grandes
